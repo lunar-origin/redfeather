@@ -59,7 +59,7 @@ const study = lab.util.fromObject({
               "required": true,
               "type": "text",
               "title": "2．本実験の手続き",
-              "content": "　もし，あなたが本実験に参加した場合，あなたには物体を記憶していただきます。\n\u003Cbr\u003E　この実験・調査の所要時間は約8分程度です。"
+              "content": "　もし，あなたが本実験に参加した場合，あなたには物体を記憶していただきます。\n\u003Cbr\u003E　この実験・調査の所要時間は約10分程度です。"
             },
             {
               "required": true,
@@ -88,20 +88,26 @@ const study = lab.util.fromObject({
             {
               "required": true,
               "type": "text",
-              "title": "7．実験実施者への問い合わせ",
+              "title": "7．録音データの扱い",
+              "content": "　本実験は録音をする場面がございますが，研究終了後にはデータを破棄します。"
+            },
+            {
+              "required": true,
+              "type": "text",
+              "title": "8．実験実施者への問い合わせ",
               "content": "　本実験に対して質問がある場合は，実施責任者にお問い合わせください。"
             },
             {
               "required": true,
               "type": "checkbox",
-              "label": "実験への参加に同意いただけますか？同意いただける方はチェックをお願いします。\u003Cbr\u003E同意いただけない方は，ESCを押した後，ウィンドウを閉じてください。",
+              "label": "実験への参加に同意いただけますか？同意いただける方は書面に署名をお願いいたします。",
               "options": [
                 {
-                  "label": "上記の説明をよく読み，理解したうえで，実験への参加に同意します。",
+                  "label": "署名を記入した。",
                   "coding": "informedConsent"
                 }
               ],
-              "name": "lessbrgreateresc"
+              "name": ""
             }
           ],
           "scrollTop": true,
@@ -140,7 +146,7 @@ const study = lab.util.fromObject({
           "items": [
             {
               "type": "text",
-              "content": "",
+              "content": "\u003Cb\u003E覚え方は自由です。\u003Cb\u003E声を出しても問題ありません。\u003C\u002Fb\u003E",
               "title": "物体の画像が提示されます。可能な限り覚えてください。"
             },
             {
@@ -167,27 +173,86 @@ const study = lab.util.fromObject({
           "title": "Learning inst"
         },
         {
-          "type": "lab.canvas.Screen",
-          "content": [
+          "type": "lab.flow.Loop",
+          "templateParameters": [
             {
-              "type": "i-text",
-              "left": 0,
-              "top": 0,
-              "angle": 0,
-              "width": 80,
-              "height": 90.4,
-              "stroke": null,
-              "strokeWidth": 1,
-              "fill": "black",
-              "text": "＋",
-              "fontStyle": "normal",
-              "fontWeight": "normal",
-              "fontSize": "80",
-              "fontFamily": "sans-serif",
-              "lineHeight": 1.16,
-              "textAlign": "center"
+              "countdown": "5"
+            },
+            {
+              "countdown": "4"
+            },
+            {
+              "countdown": "3"
+            },
+            {
+              "countdown": "2"
+            },
+            {
+              "countdown": "1"
+            },
+            {
+              "countdown": "start!"
             }
           ],
+          "sample": {
+            "mode": "sequential"
+          },
+          "files": {},
+          "responses": {
+            "": ""
+          },
+          "parameters": {},
+          "messageHandlers": {},
+          "title": "Countdown",
+          "shuffleGroups": [],
+          "template": {
+            "type": "lab.canvas.Screen",
+            "content": [
+              {
+                "type": "i-text",
+                "left": 0,
+                "top": 0,
+                "angle": 0,
+                "width": 760.4,
+                "height": 56.5,
+                "stroke": null,
+                "strokeWidth": 1,
+                "fill": "black",
+                "text": "${this.parameters.countdown}",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "fontSize": "50",
+                "fontFamily": "sans-serif",
+                "lineHeight": 1.16,
+                "textAlign": "center"
+              }
+            ],
+            "viewport": [
+              800,
+              600
+            ],
+            "files": {},
+            "responses": {
+              "": ""
+            },
+            "parameters": {},
+            "messageHandlers": {
+              "run": function anonymous(
+) {
+document.body.style.cursor = 'none'
+},
+              "end": function anonymous(
+) {
+document.body.style.cursor = 'auto'
+}
+            },
+            "title": "number",
+            "timeout": "1000"
+          }
+        },
+        {
+          "type": "lab.canvas.Screen",
+          "content": [],
           "viewport": [
             800,
             600
@@ -207,8 +272,8 @@ document.body.style.cursor = 'none'
 document.body.style.cursor = 'auto'
 }
           },
-          "title": "Fixation",
-          "timeout": "4000"
+          "title": "Blank",
+          "timeout": "500"
         },
         {
           "type": "lab.flow.Loop",
@@ -473,7 +538,7 @@ document.body.style.cursor = 'auto'
             {
               "type": "text",
               "title": "これから，課題を行っていただきます。",
-              "content": "これから，アルファベットの大文字と小文字のペアが画面に提示されます。それぞれが同じ文字を表していたら「同じ」と，違う文字を表していたら「違う」と口頭で答えてください。\nこの際，両手は机の上に置いたままにしてください。"
+              "content": "これから，アルファベットの大文字と小文字のペアが画面に提示されます。それぞれが同じ文字を表していたら\u003Cb\u003E「同じ」\u003C\u002Fb\u003Eと，違う文字を表していたら\u003Cb\u003E「違う」\u003C\u002Fb\u003Eと口頭で答えてください。\nこの際，両手は机の上に置いたままにしてください。"
             }
           ],
           "scrollTop": true,
@@ -488,27 +553,86 @@ document.body.style.cursor = 'auto'
           "title": "Prevent_STM inst"
         },
         {
-          "type": "lab.canvas.Screen",
-          "content": [
+          "type": "lab.flow.Loop",
+          "templateParameters": [
             {
-              "type": "i-text",
-              "left": 0,
-              "top": 0,
-              "angle": 0,
-              "width": 32,
-              "height": 36.16,
-              "stroke": null,
-              "strokeWidth": 1,
-              "fill": "black",
-              "text": "＋",
-              "fontStyle": "normal",
-              "fontWeight": "normal",
-              "fontSize": "80",
-              "fontFamily": "sans-serif",
-              "lineHeight": 1.16,
-              "textAlign": "center"
+              "countdown": "5"
+            },
+            {
+              "countdown": "4"
+            },
+            {
+              "countdown": "3"
+            },
+            {
+              "countdown": "2"
+            },
+            {
+              "countdown": "1"
+            },
+            {
+              "countdown": "start!"
             }
           ],
+          "sample": {
+            "mode": "sequential"
+          },
+          "files": {},
+          "responses": {
+            "": ""
+          },
+          "parameters": {},
+          "messageHandlers": {},
+          "title": "Countdown",
+          "shuffleGroups": [],
+          "template": {
+            "type": "lab.canvas.Screen",
+            "content": [
+              {
+                "type": "i-text",
+                "left": 0,
+                "top": 10,
+                "angle": 0,
+                "width": 760.4,
+                "height": 56.5,
+                "stroke": null,
+                "strokeWidth": 1,
+                "fill": "black",
+                "text": "${this.parameters.countdown}",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "fontSize": "50",
+                "fontFamily": "sans-serif",
+                "lineHeight": 1.16,
+                "textAlign": "center"
+              }
+            ],
+            "viewport": [
+              800,
+              600
+            ],
+            "files": {},
+            "responses": {
+              "": ""
+            },
+            "parameters": {},
+            "messageHandlers": {
+              "run": function anonymous(
+) {
+document.body.style.cursor = 'none'
+},
+              "end": function anonymous(
+) {
+document.body.style.cursor = 'auto'
+}
+            },
+            "title": "number",
+            "timeout": "1000"
+          }
+        },
+        {
+          "type": "lab.canvas.Screen",
+          "content": [],
           "viewport": [
             800,
             600
@@ -528,8 +652,8 @@ document.body.style.cursor = 'none'
 document.body.style.cursor = 'auto'
 }
           },
-          "title": "Fixation",
-          "timeout": "4000"
+          "title": "Blank",
+          "timeout": "500"
         },
         {
           "type": "lab.flow.Loop",
@@ -647,6 +771,12 @@ document.body.style.cursor = 'auto'
             },
             {
               "alphabet": "A u"
+            },
+            {
+              "alphabet": "K e"
+            },
+            {
+              "alphabet": "Y v"
             }
           ],
           "sample": {
@@ -759,7 +889,7 @@ document.body.style.cursor = 'auto'
             {
               "type": "text",
               "title": "これから，課題を行っていただきます。",
-              "content": "最初に覚えた物体の名前を，順序関係なくできるだけたくさん思い出して口頭で答えてください。\n時間制限はありません。これ以上思い出せないと思ったら教えて下さい。"
+              "content": "最初に覚えた物体の名前を，順序関係なくできるだけたくさん思い出して口頭で答えてください。\n時間制限はありません。\n\u003Cbr\u003Eこれ以上思い出せないと思ったら教えて下さい。"
             }
           ],
           "scrollTop": true,
