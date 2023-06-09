@@ -220,7 +220,7 @@ document.body.style.cursor = 'auto'
               "image": "Lcontroller.png"
             },
             {
-              "image": "Lliter.png"
+              "image": "Llighter.png"
             },
             {
               "image": "Lmatch.png"
