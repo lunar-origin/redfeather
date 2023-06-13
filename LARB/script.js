@@ -47,7 +47,7 @@ const study = lab.util.fromObject({
             {
               "type": "text",
               "title": "本実験について",
-              "content": "　本実験の実施責任者は岐阜大学教育学部の丹羽晴香です。\n本実験への参加者あなたの任意によるものです。"
+              "content": "　本実験は記憶の実験です。本実験の実施責任者は岐阜大学教育学部の丹羽晴香です。\n本実験への参加者あなたの任意によるものです。"
             },
             {
               "required": true,
@@ -59,7 +59,7 @@ const study = lab.util.fromObject({
               "required": true,
               "type": "text",
               "title": "2．本実験の手続き",
-              "content": "　もし，あなたが本実験に参加した場合，あなたには物体を記憶していただきます。\n\u003Cbr\u003E　この実験・調査の所要時間は約10分程度です。"
+              "content": "　もし，あなたが本実験に参加した場合，あなたには物体を記憶していただきます。\n\u003Cbr\u003E　この実験・調査の所要時間は約15~20分程度です。"
             },
             {
               "required": true,
@@ -126,7 +126,542 @@ const study = lab.util.fromObject({
           "items": [
             {
               "type": "text",
-              "title": "手の拘束を行います。",
+              "title": "これから，実験の練習を行います。\u003Cbr\u003E物体の画像が提示されます。可能な限り覚えてください。",
+              "content": "\u003Cb\u003E覚え方は自由です。\u003Cb\u003E声を出しても問題ありません。\u003C\u002Fb\u003E"
+            },
+            {
+              "required": true,
+              "type": "checkbox",
+              "label": "指示が理解出来たらチェックを入れ，「次へ」を押してください。",
+              "options": [
+                {
+                  "label": "指示が理解できた。"
+                }
+              ],
+              "name": ""
+            }
+          ],
+          "scrollTop": true,
+          "submitButtonText": "次へ",
+          "submitButtonPosition": "right",
+          "files": {},
+          "responses": {
+            "": ""
+          },
+          "parameters": {},
+          "messageHandlers": {},
+          "title": "Practice_Lrarning inst"
+        },
+        {
+          "type": "lab.flow.Loop",
+          "templateParameters": [
+            {
+              "countdown": "5"
+            },
+            {
+              "countdown": "4"
+            },
+            {
+              "countdown": "3"
+            },
+            {
+              "countdown": "2"
+            },
+            {
+              "countdown": "1"
+            },
+            {
+              "countdown": "start!"
+            }
+          ],
+          "sample": {
+            "mode": "sequential"
+          },
+          "files": {},
+          "responses": {
+            "": ""
+          },
+          "parameters": {},
+          "messageHandlers": {},
+          "title": "Countdown",
+          "shuffleGroups": [],
+          "template": {
+            "type": "lab.canvas.Screen",
+            "content": [
+              {
+                "type": "i-text",
+                "left": 0,
+                "top": 0,
+                "angle": 0,
+                "width": 760.4,
+                "height": 56.5,
+                "stroke": null,
+                "strokeWidth": 1,
+                "fill": "black",
+                "text": "${this.parameters.countdown}",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "fontSize": "50",
+                "fontFamily": "sans-serif",
+                "lineHeight": 1.16,
+                "textAlign": "center"
+              }
+            ],
+            "viewport": [
+              800,
+              600
+            ],
+            "files": {},
+            "responses": {
+              "": ""
+            },
+            "parameters": {},
+            "messageHandlers": {
+              "run": function anonymous(
+) {
+document.body.style.cursor = 'none'
+},
+              "end": function anonymous(
+) {
+document.body.style.cursor = 'auto'
+}
+            },
+            "title": "number",
+            "timeout": "1000"
+          }
+        },
+        {
+          "type": "lab.canvas.Screen",
+          "content": [],
+          "viewport": [
+            800,
+            600
+          ],
+          "files": {},
+          "responses": {
+            "": ""
+          },
+          "parameters": {},
+          "messageHandlers": {
+            "run": function anonymous(
+) {
+document.body.style.cursor = 'none'
+},
+            "end": function anonymous(
+) {
+document.body.style.cursor = 'auto'
+}
+          },
+          "title": "Blank",
+          "timeout": "500"
+        },
+        {
+          "type": "lab.flow.Loop",
+          "templateParameters": [
+            {
+              "image": "cap.png"
+            },
+            {
+              "image": "glasses.png"
+            },
+            {
+              "image": "grape.png"
+            },
+            {
+              "image": "head_phone.png"
+            },
+            {
+              "image": "kiwi.png"
+            },
+            {
+              "image": "orange.png"
+            },
+            {
+              "image": "socks.png"
+            },
+            {
+              "image": "tomato.png"
+            }
+          ],
+          "sample": {
+            "mode": "draw-shuffle"
+          },
+          "files": {},
+          "responses": {
+            "": ""
+          },
+          "parameters": {},
+          "messageHandlers": {},
+          "title": "Practice_LearningStage",
+          "shuffleGroups": [],
+          "template": {
+            "type": "lab.flow.Sequence",
+            "files": {},
+            "responses": {
+              "": ""
+            },
+            "parameters": {},
+            "messageHandlers": {},
+            "title": "Sequence",
+            "content": [
+              {
+                "type": "lab.canvas.Screen",
+                "content": [
+                  {
+                    "type": "image",
+                    "left": 0,
+                    "top": 0,
+                    "angle": 0,
+                    "width": 300,
+                    "height": 300,
+                    "stroke": null,
+                    "strokeWidth": 0,
+                    "fill": "black",
+                    "src": "${ this.files[this.parameters.image] }"
+                  }
+                ],
+                "viewport": [
+                  800,
+                  600
+                ],
+                "files": {
+                  "cap.png": "embedded\u002F0c2cc31ef4b8cee8fb3072cda625f7c5f0e5e3682e723f17167e3dd6e721c584.png",
+                  "glasses.png": "embedded\u002Ff246991c6d6ec689b9c2b9270f35f159d341477e69b52ba2ef2f93a40d809115.png",
+                  "grape.png": "embedded\u002F45624dca2684f4f6ec74737dda5448ab348ccb8ad2a06f458b4f3086ae1ea4ec.png",
+                  "head_phone.png": "embedded\u002F2bce4dda851f0291847906148c78313d9916dcb7a3578e9834dc7dcfa381f838.png",
+                  "kiwi.png": "embedded\u002F185626527234e5afcbce9a270f72328e46819a07bdcd68a8f16922ed490a0043.png",
+                  "orange.png": "embedded\u002F1a595089ed5d38befdbc5932294879ee46473e6b4efdf92204106fa48061302a.png",
+                  "socks.png": "embedded\u002F65641fec114b6d2f1165c1f93c31019e4d77cb6a1b8b5a25f7acb62ca9491b03.png",
+                  "tomato.png": "embedded\u002F136a2cc20cb66410b81189b8e09f2407f54beeb5ea3b7ffd140e5d987a0dd5bd.png"
+                },
+                "responses": {
+                  "": ""
+                },
+                "parameters": {},
+                "messageHandlers": {
+                  "run": function anonymous(
+) {
+document.body.style.cursor = 'none'
+},
+                  "end": function anonymous(
+) {
+document.body.style.cursor = 'auto'
+}
+                },
+                "title": "P_Stimulus",
+                "timeout": "1500"
+              },
+              {
+                "type": "lab.canvas.Screen",
+                "content": [],
+                "viewport": [
+                  800,
+                  600
+                ],
+                "files": {},
+                "responses": {
+                  "": ""
+                },
+                "parameters": {},
+                "messageHandlers": {
+                  "run": function anonymous(
+) {
+document.body.style.cursor = 'none'
+},
+                  "end": function anonymous(
+) {
+document.body.style.cursor = 'auto'
+}
+                },
+                "title": "Blank",
+                "timeout": "750"
+              }
+            ]
+          }
+        },
+        {
+          "type": "lab.html.Page",
+          "items": [
+            {
+              "type": "text",
+              "title": "この画面が提示されたら実験者をお呼びください。"
+            }
+          ],
+          "scrollTop": true,
+          "submitButtonText": "次へ",
+          "submitButtonPosition": "right",
+          "files": {},
+          "responses": {
+            "": ""
+          },
+          "parameters": {},
+          "messageHandlers": {},
+          "title": "Call"
+        },
+        {
+          "type": "lab.html.Page",
+          "items": [
+            {
+              "type": "text",
+              "title": "これから，課題を行っていただきます。",
+              "content": "これから，アルファベットの大文字と小文字のペアが画面に提示されます。それぞれが同じ文字を表していたら\u003Cb\u003E「同じ」\u003C\u002Fb\u003Eと，違う文字を表していたら\u003Cb\u003E「違う」\u003C\u002Fb\u003Eと口頭で答えてください。\nこの際，両手は机の上に置いたままにしてください。"
+            }
+          ],
+          "scrollTop": true,
+          "submitButtonText": "指示が理解できた。",
+          "submitButtonPosition": "right",
+          "files": {},
+          "responses": {
+            "": ""
+          },
+          "parameters": {},
+          "messageHandlers": {},
+          "title": "Practice_PreventSTM inst"
+        },
+        {
+          "type": "lab.flow.Loop",
+          "templateParameters": [],
+          "sample": {
+            "mode": "draw-shuffle"
+          },
+          "files": {},
+          "responses": {
+            "": ""
+          },
+          "parameters": {},
+          "messageHandlers": {},
+          "title": "Countdown",
+          "shuffleGroups": [],
+          "template": {
+            "type": "lab.canvas.Screen",
+            "content": [
+              {
+                "type": "i-text",
+                "left": 0,
+                "top": 0,
+                "angle": 0,
+                "width": 760.4,
+                "height": 56.5,
+                "stroke": null,
+                "strokeWidth": 1,
+                "fill": "black",
+                "text": "${this.parameters.countdown}",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "fontSize": "50",
+                "fontFamily": "sans-serif",
+                "lineHeight": 1.16,
+                "textAlign": "center"
+              }
+            ],
+            "viewport": [
+              800,
+              600
+            ],
+            "files": {},
+            "responses": {
+              "": ""
+            },
+            "parameters": {},
+            "messageHandlers": {
+              "run": function anonymous(
+) {
+document.body.style.cursor = 'none'
+},
+              "end": function anonymous(
+) {
+document.body.style.cursor = 'auto'
+}
+            },
+            "title": "number",
+            "timeout": "1000"
+          }
+        },
+        {
+          "type": "lab.canvas.Screen",
+          "content": [],
+          "viewport": [
+            800,
+            600
+          ],
+          "files": {},
+          "responses": {
+            "": ""
+          },
+          "parameters": {},
+          "messageHandlers": {
+            "run": function anonymous(
+) {
+document.body.style.cursor = 'none'
+},
+            "end": function anonymous(
+) {
+document.body.style.cursor = 'auto'
+}
+          },
+          "title": "Blank",
+          "timeout": "500"
+        },
+        {
+          "type": "lab.flow.Loop",
+          "templateParameters": [
+            {
+              "Alphabet": "K u"
+            },
+            {
+              "Alphabet": "T t"
+            },
+            {
+              "Alphabet": "F h"
+            },
+            {
+              "Alphabet": "C o"
+            },
+            {
+              "Alphabet": "P p"
+            },
+            {
+              "Alphabet": "V z"
+            }
+          ],
+          "sample": {
+            "mode": "sequential"
+          },
+          "files": {},
+          "responses": {
+            "": ""
+          },
+          "parameters": {},
+          "messageHandlers": {},
+          "title": "Practice_Prevent_STM",
+          "shuffleGroups": [],
+          "template": {
+            "type": "lab.flow.Sequence",
+            "files": {},
+            "responses": {
+              "": ""
+            },
+            "parameters": {},
+            "messageHandlers": {},
+            "title": "Sequence",
+            "content": [
+              {
+                "type": "lab.canvas.Screen",
+                "content": [
+                  {
+                    "type": "i-text",
+                    "left": 0,
+                    "top": 0,
+                    "angle": 0,
+                    "width": 707.08,
+                    "height": 56.5,
+                    "stroke": null,
+                    "strokeWidth": 1,
+                    "fill": "black",
+                    "text": "${this.parameters.Alphabet}",
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                    "fontSize": "50",
+                    "fontFamily": "sans-serif",
+                    "lineHeight": 1.16,
+                    "textAlign": "center"
+                  }
+                ],
+                "viewport": [
+                  800,
+                  600
+                ],
+                "files": {},
+                "responses": {
+                  "": ""
+                },
+                "parameters": {},
+                "messageHandlers": {
+                  "run": function anonymous(
+) {
+document.body.style.cursor = 'none'
+},
+                  "end": function anonymous(
+) {
+document.body.style.cursor = 'auto'
+}
+                },
+                "title": "Alphabet",
+                "timeout": "1500"
+              },
+              {
+                "type": "lab.canvas.Screen",
+                "content": [],
+                "viewport": [
+                  800,
+                  600
+                ],
+                "files": {},
+                "responses": {
+                  "": ""
+                },
+                "parameters": {},
+                "messageHandlers": {
+                  "run": function anonymous(
+) {
+document.body.style.cursor = 'none'
+},
+                  "end": function anonymous(
+) {
+document.body.style.cursor = 'auto'
+}
+                },
+                "title": "Blank",
+                "timeout": "750"
+              }
+            ]
+          }
+        },
+        {
+          "type": "lab.html.Page",
+          "items": [
+            {
+              "type": "text",
+              "title": "この画面が提示されたら実験者をお呼びください。"
+            }
+          ],
+          "scrollTop": true,
+          "submitButtonText": "次へ",
+          "submitButtonPosition": "right",
+          "files": {},
+          "responses": {
+            "": ""
+          },
+          "parameters": {},
+          "messageHandlers": {},
+          "title": "Call"
+        },
+        {
+          "type": "lab.html.Page",
+          "items": [
+            {
+              "type": "text",
+              "title": "これから，課題を行っていただきます。",
+              "content": "最初に覚えた物体の名前を，順序関係なくできるだけたくさん思い出して口頭で答えてください。\n時間制限はありません。\n\u003Cbr\u003Eこれ以上思い出せないと思ったら教えて下さい。"
+            }
+          ],
+          "scrollTop": true,
+          "submitButtonText": "　",
+          "submitButtonPosition": "right",
+          "files": {},
+          "responses": {
+            "": ""
+          },
+          "parameters": {},
+          "messageHandlers": {},
+          "title": "Practice_RecallStage"
+        },
+        {
+          "type": "lab.html.Page",
+          "items": [
+            {
+              "type": "text",
+              "title": "練習が終わりました。本試行に入ります。まず，手の拘束を行います。",
               "content": "この画面が提示されたら，実験者をお呼びください。"
             }
           ],
@@ -479,7 +1014,16 @@ document.body.style.cursor = 'auto'
                   "": ""
                 },
                 "parameters": {},
-                "messageHandlers": {},
+                "messageHandlers": {
+                  "run": function anonymous(
+) {
+document.body.style.cursor = 'none'
+},
+                  "end": function anonymous(
+) {
+document.body.style.cursor = 'auto'
+}
+                },
                 "title": "Stimulus",
                 "timeout": "1500"
               },
@@ -495,7 +1039,16 @@ document.body.style.cursor = 'auto'
                   "": ""
                 },
                 "parameters": {},
-                "messageHandlers": {},
+                "messageHandlers": {
+                  "run": function anonymous(
+) {
+document.body.style.cursor = 'none'
+},
+                  "end": function anonymous(
+) {
+document.body.style.cursor = 'auto'
+}
+                },
                 "title": "Blank",
                 "timeout": "750"
               }
@@ -859,7 +1412,16 @@ document.body.style.cursor = 'auto'
                   "": ""
                 },
                 "parameters": {},
-                "messageHandlers": {},
+                "messageHandlers": {
+                  "run": function anonymous(
+) {
+document.body.style.cursor = 'none'
+},
+                  "end": function anonymous(
+) {
+document.body.style.cursor = 'auto'
+}
+                },
                 "title": "Alphabet",
                 "timeout": "1500"
               },
@@ -875,7 +1437,16 @@ document.body.style.cursor = 'auto'
                   "": ""
                 },
                 "parameters": {},
-                "messageHandlers": {},
+                "messageHandlers": {
+                  "run": function anonymous(
+) {
+document.body.style.cursor = 'none'
+},
+                  "end": function anonymous(
+) {
+document.body.style.cursor = 'auto'
+}
+                },
                 "title": "Blank",
                 "timeout": "750"
               }
@@ -888,7 +1459,7 @@ document.body.style.cursor = 'auto'
             {
               "type": "text",
               "content": "",
-              "title": "この画面が提示されたら実験者を呼んでください。"
+              "title": "この画面が提示されたら実験者をお呼びください。"
             }
           ],
           "scrollTop": true,
@@ -920,7 +1491,7 @@ document.body.style.cursor = 'auto'
           },
           "parameters": {},
           "messageHandlers": {},
-          "title": "Recall  inst"
+          "title": "RecallStage"
         },
         {
           "type": "lab.html.Page",
